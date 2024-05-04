@@ -11,9 +11,11 @@
     }
   },
   "scripts": {
-    "build:esm": "tsc --project tsconfig.esm.json",
+    "build": "tsc",
     "build:cjs": "tsc --project tsconfig.cjs.json",
-    "prepack": "git clean -xdf dist; npm run build:esm; npm run build:cjs"
+    "test": "uvu ./dist/esm/tests",
+    "prepack": "git clean -xdf dist; npm run build; npm run build:cjs",
+    "watch": "tsc --watch"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,8 @@
   "homepage": "https://github.com/nicholasrice/postcss-merge-border-radius#readme",
   "devDependencies": {
     "@types/node": "^20.12.8",
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
   "dependencies": {
