@@ -1,0 +1,26 @@
+{
+  "name": "postcss-merge-border-radius",
+  "version": "1.0.0",
+  "description": "A postcss plugin for merging long-form border-radius rules.",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholasrice/postcss-merge-border-radius.git"
+  },
+  "keywords": [
+    "postcss"
+  ],
+  "author": "nicholasrice@users.noreply.github.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicholasrice/postcss-merge-border-radius/issues"
+  },
+  "homepage": "https://github.com/nicholasrice/postcss-merge-border-radius#readme"
+}
