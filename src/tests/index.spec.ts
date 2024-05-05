@@ -54,7 +54,8 @@ test("should merge when all corner values are identical variables", async () => 
 });
 
 test("should merge when all corner values are identical and divided", async () => {
-  const fixture = await css`
+  const fixture =
+  await css`
     .class {
       border-top-left-radius: 10px 20px;
       border-top-right-radius: 10px 20px;
