@@ -2,7 +2,7 @@ src/
 node_modules
 **/*.spec.js
 **/*.spec.d.ts
-tsconfig.*
+tsconfig.json
 .prettierrc
 .vscode/
 .github

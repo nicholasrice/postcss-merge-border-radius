@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./dist/types",
     "lib": ["ES2022"],
     "module": "Node16",
     "moduleResolution": "Node16",
-    "outDir": "./dist/esm",
+    "outDir": "./dist",
     "rootDir": "./src",
     "target": "ES6"
   }

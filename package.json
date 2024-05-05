@@ -2,19 +2,18 @@
   "name": "postcss-merge-border-radius",
   "version": "1.0.0",
   "description": "A postcss plugin for merging long-form border-radius rules.",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "require": "./dist/cjs/index.js",
       "default": "./dist/esm/index.js"
     }
   },
   "scripts": {
     "build": "tsc",
-    "build:cjs": "tsc --project tsconfig.cjs.json",
-    "test": "uvu ./dist/esm/tests",
-    "prepack": "git clean -xdf dist; npm run build; npm run build:cjs",
+    "test": "uvu ./dist/tests --ignore \\.d\\.ts",
+    "prepack": "git clean -xdf dist; npm run build",
     "watch": "tsc --watch"
   },
   "repository": {

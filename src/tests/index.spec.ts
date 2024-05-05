@@ -1,7 +1,7 @@
 import postcss from "postcss";
 import plugin from "../index.js";
 import { test } from "uvu";
-import Assert from "uvu/assert";
+import * as Assert from "uvu/assert";
 import prettier from "prettier";
 
 /**
