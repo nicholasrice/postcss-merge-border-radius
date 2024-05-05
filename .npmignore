@@ -1,0 +1,7 @@
+src/
+node_modules
+**/*.spec.js
+**/*.spec.d.ts
+tsconfig.*
+.prettierrc
+.vscode/

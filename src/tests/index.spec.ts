@@ -46,7 +46,7 @@ test("should merge when all corner values are identical variables", async () => 
 
   const result = await css`
     .class {
-      border-radius: var(-test);
+      border-radius: var(--test);
     }
   `;
   const processed = postcss([plugin]).process(fixture);
