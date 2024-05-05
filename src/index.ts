@@ -157,6 +157,7 @@ class MergeDeclarations implements IMergeDeclarations {
       value,
       important,
     });
+    declaration.source = this.a.source;
     this.rule.insertBefore(this.a, declaration);
     this.values.forEach((value) => value.remove());
   }

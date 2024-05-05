@@ -22,7 +22,7 @@
     "url": "git+https://github.com/nicholasrice/postcss-merge-border-radius.git"
   },
   "keywords": [
-    "postcss"
+    "postcss-plugin"
   ],
   "author": "nicholasrice@users.noreply.github.com",
   "license": "MIT",
