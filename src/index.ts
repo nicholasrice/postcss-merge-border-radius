@@ -1,4 +1,4 @@
-import { Rule, Declaration, PluginCreator, list } from "postcss";
+import { type Rule, type Declaration, type PluginCreator } from "postcss";
 
 const name = "PostCSS-merge-border-radius";
 
@@ -20,7 +20,7 @@ export default pluginFactory;
 
 const tester = /border-(top|bottom)-(left|right)-radius/;
 
-function processRule(rule: Rule): void {
+function processRule(rule: Rule, { list, Declaration }): void {
   const matches = filterDeclarations(rule, tester);
   const noDuplicateProperties =
     new Set(matches.map((value) => value.prop)).size === 4;
@@ -30,7 +30,7 @@ function processRule(rule: Rule): void {
       rule,
     );
 
-    merge.merge();
+    merge.merge(list, Declaration);
   }
 }
 
@@ -46,6 +46,13 @@ function filterDeclarations(
 }
 
 /**
+ * Create type for postcss 'list' import
+ */
+interface List {
+  space(str: string): string[];
+}
+
+/**
  * Represents the 4 corners of a set of declarations that can be merged
  *
  * a------b
@@ -56,7 +63,7 @@ interface IMergeDeclarations {
   /**
    * Merge the declarations
    */
-  merge(): void;
+  merge(list: List, declaration: typeof Declaration): void;
 }
 
 class MergeDeclarations implements IMergeDeclarations {
@@ -101,7 +108,7 @@ class MergeDeclarations implements IMergeDeclarations {
     }
   }
 
-  public merge() {
+  public merge(list: List, declaration: typeof Declaration) {
     const someValuesImportant = this.someValuesImportant;
     const allValuesImportant = this.allValuesImportant;
 
@@ -115,7 +122,7 @@ class MergeDeclarations implements IMergeDeclarations {
     if (this.allValuesEqual) {
       const value = this.mergeValues([aSplit]);
       const important = this.a.important;
-      this.mergeRules(value, important);
+      this.mergeRules(declaration, value, important);
       return;
     }
 
@@ -137,11 +144,15 @@ class MergeDeclarations implements IMergeDeclarations {
       value = this.mergeValues([aSplit, bSplit, cSplit, dSplit]);
     }
 
-    this.mergeRules(value, allValuesImportant);
+    this.mergeRules(declaration, value, allValuesImportant);
   }
 
-  private mergeRules(value: string, important?: boolean) {
-    const declaration = new Declaration({
+  private mergeRules(
+    constructableDeclaration: typeof Declaration,
+    value: string,
+    important?: boolean,
+  ) {
+    const declaration = new constructableDeclaration({
       prop: "border-radius",
       value,
       important,
