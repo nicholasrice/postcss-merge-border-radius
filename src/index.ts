@@ -14,6 +14,7 @@ const pluginFactory: PluginCreator<Options> = (options: Options = {}) => {
   };
 };
 
+// test change
 pluginFactory.postcss = true;
 
 export default pluginFactory;
